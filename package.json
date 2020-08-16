@@ -12,8 +12,8 @@
     "start": "rollup -c rollup.config.ts",
     "build": "rm -rf dist && rollup -c rollup.config.ts",
     "watch": "rollup -c rollup.config.ts -w",
-    "lint:js": "front-linter js  -- --presets=javascript,react",
-    "lint:ts": "front-linter js  -- --presets=typescript,react",
+    "lint:js": "front-linter js  -- --presets=javascript",
+    "lint:ts": "front-linter js  -- --presets=typescript",
     "lint": "npm run lint:js && npm run lint:ts",
     "test": "jest --coverage",
     "report-coverage": "cat ./coverage/lcov.info | coveralls",
@@ -50,12 +50,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "./node_modules/@rogal/front-linter/typescript-react-eslint.js"
-    ]
-  },
-  "stylelint": {
-    "extends": [
-      "./node_modules/@rogal/front-linter/.stylelintrc.js"
+      "./node_modules/@rogal/front-linter/typescript-preset-eslint.js"
     ]
   },
   "lint-staged": {
