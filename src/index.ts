@@ -4,7 +4,8 @@ import type {
 } from 'axios';
 
 import { HttpClient } from './HttpClient';
+import { HttpClientInterceptor } from './HttpClientInterceptor';
 
-export { HttpClient };
+export { HttpClient, HttpClientInterceptor };
 
 export type { HttpClientResponse, HttpClientError };
