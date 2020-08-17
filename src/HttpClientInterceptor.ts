@@ -1,13 +1,13 @@
-import axios from 'axios';
+import axios, { AxiosResponse, AxiosError } from 'axios';
 
-export const HttpClientInterceptor = () =>
+export const HttpClientInterceptor = (): Promise<AxiosResponse> =>
   new Promise((resolve, reject) => {
     axios.interceptors.response.use(
-      (response) => {
+      (response: AxiosResponse) => {
         resolve(response);
         return response;
       },
-      (error) => {
+      (error: AxiosError) => {
         reject(error);
         throw error;
       }
