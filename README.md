@@ -31,6 +31,19 @@ npm install @rogal/http-adapter --save
 * httpClient.delete
 
 
+### Interceptor
+
+We offer you an interceptor so you can observe calls.
+
+```js
+HttpClientInterceptor().then(response => {
+  // do something with the response
+}).catch(err => {
+  // do something with the error
+}) ;
+```
+
+
 ### How to contribute
 
 You can install and have an enviroment ready for use with Storybook
