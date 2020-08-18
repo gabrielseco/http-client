@@ -20,14 +20,17 @@ describe('HttpClient', () => {
   type Todo = { name: string };
   const httpClient = new HttpClient({ baseUrl: 'http://localhost:3000' });
 
-  it('should retrieve the response with the interceptor when making a call', async () => {
+  it('should work the httpClient when interceptor is called', async () => {
     expect.assertions(1);
-    const promise = HttpClientInterceptor();
-    httpClient.get({ pathname: '/todos' });
-
-    return promise.then((responseInterceptor) => {
-      expect(responseInterceptor.data).toEqual([]);
+    HttpClientInterceptor().catch((err) => {
+      console.log('err interceptor', err);
     });
+    try {
+      const todos = await httpClient.get({ pathname: '/todos' });
+      expect(todos.data).toEqual([]);
+    } catch (err) {
+      console.log('err', err);
+    }
   });
 
   it('should catch the response with the interceptor when making a call', async () => {
