@@ -1,11 +1,11 @@
-# Http Adapter [![NPM Version](https://img.shields.io/npm/v/@rogal/http-adapter.svg)](https://www.npmjs.com/package/@rogal/http-adapter) [![NPM Downloads](https://img.shields.io/npm/dm/@rogal/http-adapter.svg)](https://www.npmjs.com/package/http-adapter) [![Actions Status](https://github.com/gabrielseco/http-adapter/workflows/tests/badge.svg)](https://github.com/gabrielseco/http-adapter/actions) [![Coverage Status](https://coveralls.io/repos/github/gabrielseco/http-adapter/badge.svg?branch=master)](https://coveralls.io/github/gabrielseco/http-adapter?branch=master)
+# Http Client [![NPM Version](https://img.shields.io/npm/v/@rogal/http-client.svg)](https://www.npmjs.com/package/@rogal/http-client) [![NPM Downloads](https://img.shields.io/npm/dm/@rogal/http-client.svg)](https://www.npmjs.com/package/http-client) [![Actions Status](https://github.com/gabrielseco/http-client/workflows/tests/badge.svg)](https://github.com/gabrielseco/http-client/actions) [![Coverage Status](https://coveralls.io/repos/github/gabrielseco/http-client/badge.svg?branch=master)](https://coveralls.io/github/gabrielseco/http-client?branch=master)
 
 > An adapter to make http requests and abstract from fetching packages
 
 ## Install
 
 ```sh
-npm install @rogal/http-adapter --save
+npm install @rogal/http-client --save
 ```
 
 ### Getting Started
