@@ -41,7 +41,7 @@
     "jest": "26.4.2",
     "lint-staged": "10.3.0",
     "msw": "0.21.2",
-    "rollup": "2.26.11",
+    "rollup": "2.27.0",
     "rollup-plugin-typescript2": "0.27.2",
     "serve": "11.3.2",
     "shipjs": "0.21.0",
