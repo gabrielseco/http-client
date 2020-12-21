@@ -1,3 +1,6 @@
+## 1.0.0-beta.4 (December 21, 2020)
+- Add params to get method
+
 ## 1.0.0-beta.3 (August 18, 2020)
 - Fix HttpInterceptors
 
