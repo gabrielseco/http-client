@@ -18,11 +18,16 @@ export class HttpClient {
   }
 
   get<ApiResponse>({
-    pathname
+    pathname,
+    params
   }: {
     pathname: string;
+    params?: Record<string, unknown>;
   }): Promise<AxiosResponse<ApiResponse>> {
-    return axios.get(`${this.baseUrl}${pathname}`, { headers: this.headers });
+    return axios.get(`${this.baseUrl}${pathname}`, {
+      params,
+      headers: this.headers
+    });
   }
 
   post<Payload, ApiResponse>({

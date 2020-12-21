@@ -77,6 +77,28 @@ describe('HttpClient', () => {
     }
   });
 
+  it('should retrieve filtered todos using the params option', async () => {
+    const todos: Todo[] = [{ name: 'todo' }];
+    server.use(
+      rest.get('http://localhost:3000/todos', (req, res, ctx) => {
+        const limit = req.url.searchParams.get('limit');
+        return res(ctx.status(200), ctx.json({ limit }));
+      })
+    );
+
+    const limit = 20;
+
+    try {
+      const response = await httpClient.get<Todo[]>({
+        pathname: '/todos',
+        params: { limit }
+      });
+      expect(response.data).toEqual({ limit });
+    } catch (err) {
+      console.log('err', err);
+    }
+  });
+
   it('should retrieve an error when the get returns an error', async () => {
     server.use(
       rest.get('http://localhost:3000/todos', (req, res, ctx) => {
