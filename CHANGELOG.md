@@ -1,3 +1,12 @@
+# [1.0.0-beta.4](https://github.com/gabrielseco/http-client/compare/v1.0.0-beta.3...v1.0.0-beta.4) (2020-12-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency axios to ^0.20.0 ([bc5b41e](https://github.com/gabrielseco/http-client/commit/bc5b41e02d23e7dd1121249a4b66b8c72978aec1))
+
+
+
 ## 1.0.0-beta.3 (August 18, 2020)
 - Fix HttpInterceptors
 
