@@ -81,7 +81,7 @@ describe('HttpClient', () => {
     const todos: Todo[] = [{ name: 'todo' }];
     server.use(
       rest.get('http://localhost:3000/todos', (req, res, ctx) => {
-        const limit = req.url.searchParams.get('limit');
+        const limit = parseInt(req.url.searchParams.get('limit') as string, 10);
         return res(ctx.status(200), ctx.json({ limit }));
       })
     );
@@ -305,6 +305,89 @@ describe('HttpClient', () => {
         expect(response.request.requestHeaders.Authorization).toBe(
           'token 1234'
         );
+      } catch (err) {
+        console.log('err', err);
+      }
+    });
+  });
+
+  describe('Options', () => {
+    const httpClient = new HttpClient({
+      baseUrl: 'http://localhost:3000',
+      headers: { Authorization: 'token 1234' }
+    });
+
+    it('should get with arraybuffer for binary operations', async () => {
+      try {
+        const response = await httpClient.get<Todo>({
+          pathname: '/todos',
+          options: { responseType: 'arraybuffer' }
+        });
+        expect(response.status).toBe(200);
+        expect(response.config.responseType).toBe('arraybuffer');
+        expect(response.data).toBeInstanceOf(Uint8Array);
+      } catch (err) {
+        console.log(err);
+      }
+    });
+
+    it('should create post with arraybuffer for binary operations', async () => {
+      try {
+        const response = await httpClient.post<Todo, { message: string }>({
+          pathname: '/todos',
+          payload: { name: 'todo' },
+          options: { responseType: 'arraybuffer' }
+        });
+        expect(response.status).toBe(201);
+        expect(response.config.responseType).toBe('arraybuffer');
+        expect(response.data).toBeInstanceOf(Uint8Array);
+      } catch (err) {
+        console.log(err);
+      }
+    });
+
+    it('should update a todo with arraybuffer for binary operations', async () => {
+      try {
+        const response = await httpClient.put<Todo, { message: string }>({
+          pathname: '/todos/1',
+          payload: { name: 'todo' },
+          options: { responseType: 'arraybuffer' }
+        });
+
+        expect(response.status).toBe(201);
+        expect(response.config.responseType).toBe('arraybuffer');
+        expect(response.data).toBeInstanceOf(Uint8Array);
+      } catch (err) {
+        console.log('err', err);
+      }
+    });
+
+    it('should patch with arraybuffer for binary operations', async () => {
+      try {
+        const response = await httpClient.patch<Todo, { message: string }>({
+          pathname: '/todos/1',
+          payload: { name: 'todo' },
+          options: { responseType: 'arraybuffer' }
+        });
+
+        expect(response.status).toBe(201);
+        expect(response.config.responseType).toBe('arraybuffer');
+        expect(response.data).toBeInstanceOf(Uint8Array);
+      } catch (err) {
+        console.log('err', err);
+      }
+    });
+
+    it('should delete a todo with arraybuffer for binary operations', async () => {
+      try {
+        const response = await httpClient.delete<{ message: string }>({
+          pathname: '/todos/1',
+          options: { responseType: 'arraybuffer' }
+        });
+
+        expect(response.status).toBe(200);
+        expect(response.config.responseType).toBe('arraybuffer');
+        expect(response.data).toBeInstanceOf(Uint8Array);
       } catch (err) {
         console.log('err', err);
       }
