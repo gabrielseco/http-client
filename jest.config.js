@@ -1,9 +1,6 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
-  moduleNameMapper: {
-    '\\.(scss)$': '<rootDir>/config/jest/styleMock.ts'
-  },
   transformIgnorePatterns: ['<rootDir>/node_modules/'],
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',
