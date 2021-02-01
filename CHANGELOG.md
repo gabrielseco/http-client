@@ -1,3 +1,7 @@
+# [1.0.0-beta.5](https://github.com/gabrielseco/http-client/compare/v1.0.0-beta.4...v1.0.0-beta.5) (2021-02-01)
+
+
+
 ## 1.0.0-beta.4 (December 21, 2020)
 - Add params to get method
 
