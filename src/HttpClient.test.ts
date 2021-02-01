@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { response, rest } from 'msw';
+import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 
 import { HttpClient } from './index';
