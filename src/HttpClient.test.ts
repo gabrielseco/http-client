@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 import axios from 'axios';
-import Axios from 'axios';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 
