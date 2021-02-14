@@ -1,6 +1,6 @@
-# [1.0.0-beta.6](https://github.com/gabrielseco/http-client/compare/v1.0.0-beta.5...v1.0.0-beta.6) (2021-02-14)
-
-
+# [1.0.0-beta.6] (February 14, 2021)
+- Add createCancelToken function to be able to cancel requests.
+- Now each method accepts in options the cancelToken
 
 # [1.0.0-beta.5] (February 1, 2021)
 - Add options object with responseType to each method
