@@ -1,6 +1,7 @@
 import type {
   AxiosResponse as HttpClientResponse,
-  AxiosError as HttpClientError
+  AxiosError as HttpClientError,
+  CancelTokenSource as HttpClientCancelTokenSource
 } from 'axios';
 
 import { HttpClient } from './HttpClient';
@@ -9,4 +10,8 @@ import { createCancelToken } from './CancelToken';
 
 export { HttpClient, HttpClientInterceptor, createCancelToken };
 
-export type { HttpClientResponse, HttpClientError };
+export type {
+  HttpClientResponse,
+  HttpClientError,
+  HttpClientCancelTokenSource
+};
