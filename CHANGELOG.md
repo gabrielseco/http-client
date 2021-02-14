@@ -1,3 +1,6 @@
+# [1.0.0-beta.7] (February 14, 2021)
+- Export CancelToken
+
 # [1.0.0-beta.6] (February 14, 2021)
 - Add createCancelToken function to be able to cancel requests.
 - Now each method accepts in options the cancelToken
