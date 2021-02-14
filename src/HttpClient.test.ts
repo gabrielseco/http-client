@@ -1,6 +1,9 @@
 /* eslint-disable no-console */
+import axios from 'axios';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
+
+import { createCancelToken } from './CancelToken';
 
 import { HttpClient } from './index';
 
@@ -391,6 +394,66 @@ describe('HttpClient', () => {
       } catch (err) {
         console.log('err', err);
       }
+    });
+  });
+
+  describe('CancelToken', () => {
+    it('should pass a cancelToken to a get request', async () => {
+      expect.assertions(1);
+
+      const cancelToken = createCancelToken();
+      expect(
+        httpClient.get({
+          pathname: '/todos',
+          options: { cancelToken }
+        })
+      ).rejects.toBeInstanceOf(axios.Cancel);
+
+      cancelToken.cancel();
+    });
+
+    it('should pass a cancelToken to a post request', async () => {
+      expect.assertions(1);
+
+      const cancelToken = createCancelToken();
+      expect(
+        httpClient.post({
+          pathname: '/todos',
+          payload: null,
+          options: { cancelToken }
+        })
+      ).rejects.toBeInstanceOf(axios.Cancel);
+
+      cancelToken.cancel();
+    });
+
+    it('should pass a cancelToken to a put request', async () => {
+      expect.assertions(1);
+
+      const cancelToken = createCancelToken();
+      expect(
+        httpClient.put({
+          pathname: '/todos',
+          payload: null,
+          options: { cancelToken }
+        })
+      ).rejects.toBeInstanceOf(axios.Cancel);
+
+      cancelToken.cancel();
+    });
+
+    it('should pass a cancelToken to a delete request', async () => {
+      expect.assertions(1);
+
+      const cancelToken = createCancelToken();
+      expect(
+        httpClient.delete({
+          pathname: '/todos',
+          options: { cancelToken }
+        })
+      ).rejects.toBeInstanceOf(axios.Cancel);
+
+      cancelToken.cancel();
     });
   });
 });

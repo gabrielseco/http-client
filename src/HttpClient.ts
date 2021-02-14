@@ -1,9 +1,10 @@
-import axios, { ResponseType, AxiosResponse } from 'axios';
+import axios, { ResponseType, AxiosResponse, CancelTokenSource } from 'axios';
 
 type StringObject = { [key: string]: string };
 
 type Options = {
   responseType?: ResponseType;
+  cancelToken?: CancelTokenSource;
 };
 
 export class HttpClient {
@@ -21,6 +22,13 @@ export class HttpClient {
     this.headers = headers;
   }
 
+  getOptions(options?: Options) {
+    return {
+      responseType: options?.responseType || 'json',
+      cancelToken: options?.cancelToken?.token || undefined
+    };
+  }
+
   get<ApiResponse>({
     pathname,
     params,
@@ -32,8 +40,8 @@ export class HttpClient {
   }): Promise<AxiosResponse<ApiResponse>> {
     return axios.get(`${this.baseUrl}${pathname}`, {
       params,
-      responseType: options?.responseType || 'json',
-      headers: this.headers
+      headers: this.headers,
+      ...this.getOptions(options)
     });
   }
 
@@ -47,8 +55,8 @@ export class HttpClient {
     options?: Options;
   }): Promise<AxiosResponse<ApiResponse>> {
     return axios.post(`${this.baseUrl}${pathname}`, payload, {
-      responseType: options?.responseType || 'json',
-      headers: this.headers
+      headers: this.headers,
+      ...this.getOptions(options)
     });
   }
 
@@ -62,8 +70,8 @@ export class HttpClient {
     options?: Options;
   }): Promise<AxiosResponse<ApiResponse>> {
     return axios.put(`${this.baseUrl}${pathname}`, payload, {
-      responseType: options?.responseType || 'json',
-      headers: this.headers
+      headers: this.headers,
+      ...this.getOptions(options)
     });
   }
 
@@ -77,8 +85,8 @@ export class HttpClient {
     options?: Options;
   }): Promise<AxiosResponse<ApiResponse>> {
     return axios.patch(`${this.baseUrl}${pathname}`, payload, {
-      responseType: options?.responseType || 'json',
-      headers: this.headers
+      headers: this.headers,
+      ...this.getOptions(options)
     });
   }
 
@@ -90,8 +98,8 @@ export class HttpClient {
     options?: Options;
   }): Promise<AxiosResponse<ApiResponse>> {
     return axios.delete(`${this.baseUrl}${pathname}`, {
-      responseType: options?.responseType || 'json',
-      headers: this.headers
+      headers: this.headers,
+      ...this.getOptions(options)
     });
   }
 }
