@@ -5,7 +5,8 @@ import type {
 
 import { HttpClient } from './HttpClient';
 import { HttpClientInterceptor } from './HttpClientInterceptor';
+import { createCancelToken } from './CancelToken';
 
-export { HttpClient, HttpClientInterceptor };
+export { HttpClient, HttpClientInterceptor, createCancelToken };
 
 export type { HttpClientResponse, HttpClientError };
