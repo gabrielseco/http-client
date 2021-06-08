@@ -1,6 +1,6 @@
-# [1.0.0](https://github.com/gabrielseco/http-client/compare/v1.0.0-beta.7...v1.0.0) (2021-06-08)
-
-
+# [1.0.0] (June 8, 2021)
+- Update axios
+- Update dev dependencies
 
 # [1.0.0-beta.7] (February 14, 2021)
 - Export CancelToken
