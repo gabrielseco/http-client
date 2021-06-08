@@ -1,3 +1,7 @@
+# [1.0.0] (June 8, 2021)
+- Update axios
+- Update dev dependencies
+
 # [1.0.0-beta.7] (February 14, 2021)
 - Export CancelToken
 
