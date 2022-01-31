@@ -42,7 +42,7 @@
     "msw": "0.36.8",
     "rollup": "2.66.1",
     "rollup-plugin-typescript2": "0.31.1",
-    "shipjs": "0.24.1",
+    "shipjs": "0.24.2",
     "ts-jest": "27.1.3",
     "typescript": "4.3.5"
   },
